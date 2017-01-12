@@ -4,10 +4,11 @@
   "description": "socket.io app",
   "dependencies": {
     "express": "^4.14.0",
+    "randomstring": "^1.1.5",
     "socket.io": "^1.5.0"
   },
   "scripts": {
-  "start": "node whiteboardserver.js"
-},
-"main": "whiteboardserver.js"
+    "start": "node whiteboardserver.js"
+  },
+  "main": "whiteboardserver.js"
 }
