@@ -1,7 +1,7 @@
 {
   "name": "white-board-server",
   "version": "0.1.1",
-  "main": "whiteboardserver.js"
+  "main": "whiteboardserver.js",
   "description": "Server component of whiteboard client",
   "license": "UNLICENSED" ,
   "dependencies": {
@@ -27,5 +27,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mgerardvmw/WB.git"
-  },
+  }
 }
