@@ -1,7 +1,20 @@
-var app = require('express')();
+//  OpenShift sample Node application
+var express = require('express'),
+    fs      = require('fs'),
+    app     = express(),
+    eps     = require('ejs'),
+    morgan  = require('morgan');
+    
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var randomstring = require("randomstring");
+
+
+Object.assign=require('object-assign')
+
+app.engine('html', require('ejs').renderFile);
+app.use(morgan('combined'))
+
 
 
 var server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
@@ -146,3 +159,6 @@ http.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", port " + server_port )
   console.log( process.env )
 });
+
+
+module.exports = app ;

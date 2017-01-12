@@ -1,14 +1,31 @@
 {
   "name": "white-board-server",
-  "version": "0.0.1",
-  "description": "socket.io app",
-  "dependencies": {
-    "express": "^4.14.0",
-    "randomstring": "^1.1.5",
-    "socket.io": "^1.5.0"
-  },
-  "scripts": {
-    "start": "node whiteboardserver.js"
-  },
+  "version": "0.1.1",
   "main": "whiteboardserver.js"
+  "description": "Server component of whiteboard client",
+  "license": "UNLICENSED" ,
+  "dependencies": {
+    "express": "^4.13.4",
+    "randomstring": "^1.1.5",
+    "socket.io": "^1.5.0",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "ejs": "^2.4.1",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.16",
+    "morgan": "^1.7.0",
+    "object-assign":"4.1.0"  },
+  "scripts": {
+    "start": "node whiteboardserver.js",
+    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
+  },
+  
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgerardvmw/WB.git"
+  },
 }
