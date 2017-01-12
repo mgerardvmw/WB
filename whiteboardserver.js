@@ -12,6 +12,7 @@ app.whiteboardSessions = [];
 app.roomMembers = [];
 
 app.get('/', function(req, res){
+  console.log( 'root request');
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -136,5 +137,6 @@ io.on('connection', function(socket){
 
 
 http.listen(server_port, server_ip_address, function () {
+  console.log( "Starting server");
   console.log( "Listening on " + server_ip_address + ", port " + server_port )
 });
