@@ -17,8 +17,8 @@ app.use(morgan('combined'))
 
 
 
-var server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
-var server_ip_address = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var server_port       = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000
+var server_ip_address = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1'
 
 
 app.whiteboardSessions = [];
@@ -157,7 +157,6 @@ app.use(function(err, req, res, next){
 http.listen(server_port, server_ip_address, function () {
   console.log( "Starting server");
   console.log( "Listening on " + server_ip_address + ", port " + server_port )
-  console.log( process.env )
 });
 
 
