@@ -134,6 +134,11 @@ io.on('connection', function(socket){
     })
 });
 
+// error handling
+app.use(function(err, req, res, next){
+  console.error(err.stack);
+  res.status(500).send('Something bad happened!');
+});
 
 
 http.listen(server_port, server_ip_address, function () {
