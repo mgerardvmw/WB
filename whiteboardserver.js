@@ -14,9 +14,9 @@ Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
+  
 
-
-var server_port       = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000
+var server_port       = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP   || '127.0.0.1'
 
 
@@ -120,6 +120,8 @@ io.on('connection', function(socket){
       var devices = app.roomMembers[room];
       devices.push( deviceName );
 
+      io.to(socket.id).emit('onSessionJoined', room );   
+
       io.to(socket.id).emit('onListSessions', app.roomMembers[room] );
     });
 
@@ -152,11 +154,16 @@ app.use(function(err, req, res, next){
   res.status(500).send('Something bad happened!');
 });
 
-
+/*
 http.listen(server_port, server_ip_address, function () {
   console.log( "Starting server");
   console.log( "Listening on " + server_ip_address + ", port " + server_port )
 });
 
+*/
+
+http.listen( server_port, function(){
+  console.log('listening on *:' + server_port)
+  });
 
 module.exports = app ;
