@@ -111,18 +111,29 @@ io.on('connection', function(socket){
 
       console.log( 'joinSession: ' + room + " " + deviceName );
 
-      socket.join(room);
-      var lines = app.whiteboardSessions[room];
-      setTimeout(function() {
-          io.to(socket.id).emit('drawLines', lines );
-            }, 500);
+      var response = {};
 
-      var devices = app.roomMembers[room];
-      devices.push( deviceName );
+      if ( app,whiteboardSessions[room] != null ) {        
+        socket.join(room);
+        var lines = app.whiteboardSessions[room];
+        setTimeout(function() {
+            io.to(socket.id).emit('drawLines', lines );
+              }, 500);
 
-      io.to(socket.id).emit('onSessionJoined', room );   
+        var devices = app.roomMembers[room];
+        devices.push( deviceName );
 
-      io.to(socket.id).emit('onListSessions', app.roomMembers[room] );
+        response.type = "success";
+        response.message = room;
+
+        io.to(socket.id).emit('onListSessions', app.roomMembers[room] );
+      } else {
+        response.type = "error";
+        response.message = "Unable to find session: " + room;        
+      }
+
+
+      io.to(socket.id).emit('onSessionJoined', response );   
     });
 
     socket.on('leaveSession', function(msg) {
