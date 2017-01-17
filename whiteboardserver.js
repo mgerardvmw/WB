@@ -113,7 +113,7 @@ io.on('connection', function(socket){
 
       var response = {};
 
-      if ( app,whiteboardSessions[room] != null ) {        
+      if ( app.whiteboardSessions[room] != null ) {        
         socket.join(room);
         var lines = app.whiteboardSessions[room];
         setTimeout(function() {
