@@ -3,25 +3,23 @@
   "version": "0.1.1",
   "main": "whiteboardserver.js",
   "description": "Server component of whiteboard client",
-  "license": "UNLICENSED" ,
-  
+  "license": "UNLICENSED",
   "dependencies": {
-    "express": "^4.13.4",
-    "randomstring": "^1.1.5",
-    "socket.io": "^1.5.0",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
-    "ejs": "^2.4.1",
+    "ejs": "^2.5.5",
+    "express": "^4.13.4",
     "mocha": "^2.4.5",
     "mongodb": "^2.1.16",
     "morgan": "^1.7.0",
-    "object-assign":"4.1.0"  },
-
+    "object-assign": "4.1.0",
+    "randomstring": "^1.1.5",
+    "socket.io": "^1.5.0"
+  },
   "scripts": {
-    "start": "node whiteboardserver.js",
+    "start": "node app.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
   },
-  
   "engine": {
     "node": "*",
     "npm": "*"
@@ -29,5 +27,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mgerardvmw/WB.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.2.0",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-nodemon": "^2.2.1",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "wiredep": "^4.0.0"
   }
 }
