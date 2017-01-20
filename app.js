@@ -43,7 +43,7 @@ io.on('connection', function (socket) {
         }
         var lines = app.whiteboardSessions[room];
 
-        if (lines === null) {
+        if (lines == null) {
             lines = [];
             app.whiteboardSessions[room] = lines;
         }
@@ -63,7 +63,7 @@ io.on('connection', function (socket) {
         }
         var lines = app.whiteboardSessions[room];
 
-        if (lines === null) {
+        if (lines == null) {
             lines = [];
             app.whiteboardSessions[room] = lines;
         }
@@ -93,7 +93,7 @@ io.on('connection', function (socket) {
         io.to(socket.id).emit('test');
 
         var room = randomSessionId;
-        if (app.roomMembers === null) {
+        if (app.roomMembers == null) {
             app.roomMembers = {};
         }
         var devices = app.roomMembers[room];
