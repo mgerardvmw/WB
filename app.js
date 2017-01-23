@@ -29,6 +29,7 @@ app.roomMembers = [];
 
 
 app.get('/', function (req, res) {
+    console.log('/ received');
     res.render('index', {title: 'hello from the app', list: [ 'a', 'b', 'c']});
 });
 
