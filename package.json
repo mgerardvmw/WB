@@ -17,7 +17,6 @@
     "socket.io": "^1.5.0"
   },
   "scripts": {
-//    "postinstall": "bower install"
     "start": "node app.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
   },
