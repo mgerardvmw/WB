@@ -11,7 +11,7 @@ gulp.task('style', function () {
         .pipe(jshint.reporter('jshint-stylish', {
             verbose: true
         }))
-        .pipe(jscs());
+        .pipe(jscs({configPath: './.jscsrc'}));
 });
 
 gulp.task('inject', function() {
